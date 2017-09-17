@@ -17,10 +17,10 @@ module.exports = {
       required: true
     },
     description: {
-      type: 'longtext'
+      type: 'string'
     },
     content: {
-      type: 'longtext'
+      type: 'string'
     },
     owner: {
       model: 'user'
