@@ -5,11 +5,14 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "async": "2.0.1",
+    "lodash": "3.10.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "passport-local": "^1.0.0",
     "sails": "^1.0.0-37",
     "sails-hook-orm": "^2.0.0-16",
-    "sails-hook-sockets": "^1.4.0",
-    "lodash": "3.10.1",
-    "async": "2.0.1"
+    "sails-hook-sockets": "^1.4.0"
   },
   "devDependencies": {
     "eslint": "3.5.0"
