@@ -22,12 +22,14 @@ module.exports = {
     username: {
       type: 'string',
       required: true
-    },
-    toJSON: () => {
-      const obj = this.toOject();
-      delete obj.password;
-      return obj;
     }
+  },
+  customToJSON: () => {
+  const obj = {
+    ...this
+  };
+  delete obj.password;
+  return obj;
   },
   beforeCreate: async (values, next) => {
     try {

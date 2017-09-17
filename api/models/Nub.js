@@ -10,9 +10,8 @@ const mime = require('mime-types');
  */
 
 module.exports = {
-
+  schema: true,
   attributes: {
-    schema: true,
     name: {
       type: 'string',
       required: true
@@ -25,15 +24,15 @@ module.exports = {
     },
     owner: {
       model: 'user'
-    },
-    customToJSON: () => {
-      const obj = {
-        ...this,
-        mime: mime.lookup(this.name)
-      }
     }
-
   },
+  customToJSON: () => {
+    const obj = {
+      ...this,
+      mime: mime.lookup(this.name)
+    };
+    return obj;
+  }
 
 };
 
