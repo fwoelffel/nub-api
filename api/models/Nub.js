@@ -26,7 +26,7 @@ module.exports = {
       model: 'user'
     }
   },
-  customToJSON: () => {
+  customToJSON: function () {
     const obj = {
       ...this,
       mime: mime.lookup(this.name)

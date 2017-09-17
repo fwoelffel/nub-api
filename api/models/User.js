@@ -24,12 +24,12 @@ module.exports = {
       required: true
     }
   },
-  customToJSON: () => {
-  const obj = {
-    ...this
-  };
-  delete obj.password;
-  return obj;
+  customToJSON: function () {
+    const obj = {
+      ...this
+    };
+    delete obj.password;
+    return obj;
   },
   beforeCreate: async (values, next) => {
     try {
