@@ -42,7 +42,7 @@ const _onLocalStrategyAuth = async (email, password, next) => {
         message: `No user found matching the given email ${email}`
       });
     }
-    if (!CipherService.comparePasswords(password, foundUser)) {
+    if (!CipherService.comparePasswords(password, foundUser.password)) {
       return next(null, false, {
         code: 'E_WRONG_PASSWORD',
         message: `The given password does not match ${email}'s password`

@@ -8,31 +8,23 @@ module.exports = {
 
   /**
    * This function returns a new user object with hashed password.
-   * @param {Object} user The user object which password has to be hashed.
+   * @param {String} password The password string to be hashed.
    * @returns {Promise.<Object>} This promise resolves with a new user object.
    */
-  hashPassword: async (user) => {
+  hashPassword: async (password) => {
     const pHash = util.promisify(bcrypt.hash);
-    if (user.password) {
-      return {
-        ...user,
-        password: await pHash(user.password)
-      };
-    }
-    return {
-      ...user
-    };
+    return await pHash(user.password)
   },
 
   /**
    * This function compares the given password with the registered password for the given user.
    * @param {String} password The password to be verified.
-   * @param {Object} user The user object containing the reference password.
+   * @param {String} refPassword The reference password.
    * @returns {Promise.<boolean>} This promise resolves with true if the passwords match.
    */
-  comparePassword: async (password, user) => {
+  comparePassword: async (password, refPassword) => {
     const pCompare = util.promisify(bcrypt.compare);
-    return await pCompare(password, user.password);
+    return await pCompare(password, refPassword);
   },
 
   /**

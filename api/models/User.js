@@ -33,7 +33,7 @@ module.exports = {
   },
   beforeCreate: async (values, next) => {
     try {
-      values = await CipherService.hashPassword(values);
+      values.password = await CipherService.hashPassword(values.password);
     }
     catch (err) {
       return next(err);
@@ -42,7 +42,7 @@ module.exports = {
   },
   beforeUpdate: async (values, next) => {
     try {
-      values = await CipherService.hashPassword(values);
+      values.password = await CipherService.hashPassword(values.password);
     }
     catch (err) {
       return next(err);
