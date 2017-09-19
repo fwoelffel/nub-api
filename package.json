@@ -20,12 +20,16 @@
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
-    "eslint": "3.5.0"
+    "eslint": "3.5.0",
+    "mocha": "^4.0.1"
   },
   "scripts": {
     "start": "node app.js",
     "doc:api": "$(npm bin)/apidoc -i api/controllers -o docs/api",
-    "doc": "npm run doc:api"
+    "doc": "npm run doc:api",
+    "test:unit": "$(npm bin)/mocha test/lifecycle.test.js test/unit/**/*.test.js",
+    "test:functional": "$(npm bin)/mocha test/lifecycle.test.js test/functional/**/*.test.js",
+    "test": "npm run test:unit && npm run test:functional"
   },
   "main": "app.js",
   "repository": {
