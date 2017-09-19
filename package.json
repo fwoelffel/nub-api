@@ -15,7 +15,8 @@
     "passport-local": "^1.0.0",
     "sails": "^1.0.0-37",
     "sails-hook-orm": "^2.0.0-16",
-    "sails-hook-sockets": "^1.4.0"
+    "sails-hook-sockets": "^1.4.0",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "eslint": "3.5.0"

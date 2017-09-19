@@ -22,4 +22,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'get /snippets/:shortId': 'SnippetController.getByShortId'
+
 };

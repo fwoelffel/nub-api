@@ -1,6 +1,7 @@
 'use strict';
 
 const mime = require('mime-types');
+const shortid = require('shortid');
 
 /**
  * Nub.js
@@ -17,13 +18,21 @@ module.exports = {
       required: true
     },
     description: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: ''
     },
     content: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: ''
     },
     owner: {
       model: 'user'
+    },
+    shortId: {
+      type: 'string',
+// When using sails-disk, any attribute with `unique: true` must also have `required: true`
+// Commenting out the next line will trigger errors when using sails-disk
+//      unique: true
     }
   },
   customToJSON: function () {
@@ -31,7 +40,13 @@ module.exports = {
       ...this,
       mime: mime.lookup(this.name)
     };
+    obj.id = obj.shortId;
+    delete obj.shortId;
     return obj;
+  },
+  beforeCreate: (values, next) => {
+    values.shortId = shortid.generate();
+    return next();
   }
 
 };
