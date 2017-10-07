@@ -62,7 +62,7 @@ module.exports = {
   signin: function (req, res) {
     passport.authenticate(
       'local',
-      (error, user, info) => {
+      async (error, user, info) => {
         if (error) {
           return res.status(500).json({error: error});
         }
