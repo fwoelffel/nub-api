@@ -19,6 +19,7 @@
     "shortid": "^2.2.8"
   },
   "devDependencies": {
+    "apidoc": "^0.17.6",
     "eslint": "3.5.0"
   },
   "scripts": {
@@ -26,7 +27,9 @@
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "node ./node_modules/eslint/bin/eslint . --max-warnings=0 && echo '✔  Your code looks good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "doc:api": "$(npm bin)/apidoc -i api/controllers -o docs/api",
+    "doc": "npm run doc:api"
   },
   "main": "app.js",
   "repository": {
