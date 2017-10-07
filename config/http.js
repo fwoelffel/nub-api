@@ -1,3 +1,7 @@
+'use strict';
+
+const passport = require('passport');
+
 /**
  * HTTP Server Settings
  * (sails.config.http)
@@ -29,31 +33,42 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
-
-
-    /***************************************************************************
-    *                                                                          *
-    * The body parser that will handle incoming multipart HTTP requests.       *
-    *                                                                          *
-    * https://sailsjs.com/config/http#?customizing-the-body-parser             *
-    *                                                                          *
-    ***************************************************************************/
-
-    // bodyParser: (function _configureBodyParser(){
-    //   var skipper = require('skipper');
-    //   var middlewareFn = skipper({ strict: true });
-    //   return middlewareFn;
-    // })(),
+     order: [
+       'cookieParser',
+       'session',
+      'passportInit',
+      'passportSession',
+       'bodyParser',
+       'compress',
+       'poweredBy',
+       'jwtCheck',
+       'router',
+       'www',
+       'favicon',
+     ],
+    passportInit: passport.initialize(),
+    passportSession: passport.session(),
+    jwtCheck: (req, res, next) => {
+       sails.log.silly('Checking JWT.');
+      passport.authenticate('jwt', (err, user) => {
+        if (err) {
+          sails.log.error('Failed to authenticate with JWT strategy.');
+          res.status(500).json({
+            error: err
+          });
+        }
+        else if (user) {
+          sails.log.silly('Updating user session.');
+          req.logIn(user, (err) => {
+            next(err);
+          });
+        }
+        else {
+          sails.log.silly('JWT check unsuccessful.');
+          next();
+        }
+      })(req, res);
+    }
 
   },
 

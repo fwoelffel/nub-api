@@ -22,6 +22,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /snippets/:shortId': 'SnippetController.getByShortId'
+  'get /snippets/:shortId': 'SnippetController.getByShortId',
+
+  'post /auth/signup': 'AuthenticationController.signup',
+  'post /auth/signin': 'AuthenticationController.signin'
 
 };

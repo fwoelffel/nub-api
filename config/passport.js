@@ -8,8 +8,8 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const EXPIRATION = 60*24;
 const SECRET = process.env.JWT_SECRET_TOKEN || 'thisIsAVerySecretToken';
 const ALGORITHM = 'HS256';
-const ISSUER = process.env.JWT_ISSUER; // This is optional
-const AUDIENCE = process.env.JWT_AUDIENCE; // This is optional
+const ISSUER = process.env.JWT_ISSUER || ''; // This is optional
+const AUDIENCE = process.env.JWT_AUDIENCE || ''; // This is optional
 
 const LOCAL_CONFIGURATION = {
   usernameField: 'email',
@@ -22,7 +22,7 @@ const JWT_CONFIGURATION = {
   issuer: ISSUER,
   audience: AUDIENCE,
   passReqToCallback: false,
-  jwtFromRequest: ExtractJwt.fromHeader()
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt')
 };
 
 /**
@@ -79,6 +79,20 @@ const _onJwtStrategyAuth = async (payload, next) => {
     return next(null, false, {});
   }
 };
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const foundUser = await User.findOne(id);
+    return done(null, foundUser);
+  }
+  catch (err) {
+    return done(err);
+  }
+});
 
 passport.use(new LocalStrategy(LOCAL_CONFIGURATION, _onLocalStrategyAuth));
 passport.use(new JwtStrategy(JWT_CONFIGURATION, _onJwtStrategyAuth));

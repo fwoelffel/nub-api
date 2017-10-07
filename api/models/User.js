@@ -34,20 +34,20 @@ module.exports = {
   beforeCreate: async (values, next) => {
     try {
       values.password = await CipherService.hashPassword(values.password);
+      next();
     }
     catch (err) {
-      return next(err);
+      next(err);
     }
-    return next();
   },
   beforeUpdate: async (values, next) => {
     try {
       values.password = await CipherService.hashPassword(values.password);
+      next();
     }
     catch (err) {
-      return next(err);
+      next(err);
     }
-    return next();
   }
 
 };

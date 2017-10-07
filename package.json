@@ -6,7 +6,7 @@
   "keywords": [],
   "dependencies": {
     "async": "2.0.1",
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt": "^1.0.3",
     "jsonwebtoken": "^8.0.1",
     "lodash": "3.10.1",
     "mime-types": "^2.1.17",
