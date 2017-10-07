@@ -19,7 +19,7 @@ module.exports = {
    * @param {String} refPassword The reference password.
    * @returns {Promise.<boolean>} This promise resolves with true if the passwords match.
    */
-  comparePassword: async (password, refPassword) => {
+  comparePasswords: async (password, refPassword) => {
     return await bcrypt.compare(password, refPassword);
   }
 
