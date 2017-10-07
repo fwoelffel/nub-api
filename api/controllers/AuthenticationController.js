@@ -71,8 +71,10 @@ module.exports = {
         }
         else {
           return res.ok({
-            token: JWTokenService.createToken(user),
-            user: user
+            data: {
+              user: user,
+              token: await JWTokenService.createToken(user)
+            }
           });
         }
       })(req, res);
