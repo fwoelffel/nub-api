@@ -22,7 +22,7 @@ const JWT_CONFIGURATION = {
   issuer: ISSUER,
   audience: AUDIENCE,
   passReqToCallback: false,
-  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt')
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
 };
 
 /**
