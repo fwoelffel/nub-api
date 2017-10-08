@@ -2,8 +2,12 @@
   "name": "nub-api",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "description": "The Nub project API.",
+  "keywords": [
+    "nub",
+    "api",
+    "snippets"
+  ],
   "dependencies": {
     "async": "2.0.1",
     "bcrypt": "^1.0.3",
@@ -36,8 +40,12 @@
     "type": "git",
     "url": "git://github.com/fwoelffel/nub-api.git"
   },
-  "author": "fwoelffel",
-  "license": "",
+  "author": {
+    "name": "Frédéric Woelffel",
+    "email": "hello@fwoelffel.me",
+    "url": "https://fwoelffel.me"
+  },
+  "license": "MIT",
   "engines": {
     "node": "8"
   }

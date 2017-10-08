@@ -1,12 +1,9 @@
 # nub-api
 
-a [Sails](https://sailsjs.com) application
+The Nub project API.
 
+This application is built over [Sails](https://sailsjs.com).
 
-### Links
+# License
 
-+ [Sails framework documentation](https://sailsjs.com/documentation)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/studio)
+[MIT](./LICENSE.md)
