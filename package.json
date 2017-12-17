@@ -1,34 +1,35 @@
 {
-  "name": "nub-api",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "name": "test",
+  "version": "2.0.0",
+  "description": "Nest TypeScript starter repository",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha src/**/*.spec.ts --require ts-node/register --reporter spec",
+    "start": "node index.js",
+    "watch": "tsc -w",
+    "serve": "nodemon -e ts --watch src --exec \"npm run build && npm run start\" "
+  },
   "dependencies": {
-    "sails": "^1.0.0-37",
-    "sails-hook-orm": "^2.0.0-16",
-    "sails-hook-sockets": "^1.4.0",
-    "lodash": "3.10.1",
-    "async": "2.0.1"
+    "@nestjs/common": "^4.5.1",
+    "@nestjs/core": "^4.5.1",
+    "@nestjs/microservices": "^4.5.1",
+    "@nestjs/testing": "^4.5.1",
+    "@nestjs/websockets": "^4.5.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.5.5"
   },
   "devDependencies": {
-    "eslint": "3.5.0"
-  },
-  "scripts": {
-    "start": "NODE_ENV=production node app.js",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
-    "lint": "node ./node_modules/eslint/bin/eslint . --max-warnings=0 && echo '✔  Your code looks good.'",
-    "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
-    "debug": "node debug app.js"
-  },
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fwoelffel/nub-api.git"
-  },
-  "author": "fwoelffel",
-  "license": "",
-  "engines": {
-    "node": "8"
+    "@types/chai": "^4.0.2",
+    "@types/express": "^4.0.36",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.19",
+    "@types/sinon": "^2.3.3",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "sinon": "^2.4.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
   }
 }

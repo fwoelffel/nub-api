@@ -1,12 +1,15 @@
-# nub-api
+# Nest framework TypeScript starter
 
-a [Sails](https://sailsjs.com) application
+Starter repository for [Nest](https://github.com/kamilmysliwiec/nest) framework.
 
+### Installation
 
-### Links
+```
+$ npm install
+```
 
-+ [Sails framework documentation](https://sailsjs.com/documentation)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/studio)
+### Start
+
+```
+$ npm run start
+```
