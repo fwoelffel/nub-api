@@ -1,0 +1,19 @@
+version: "3.4"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: db
+    ports:
+      - '5432:5432'
+
+  db-admin:
+    image: sosedoff/pgweb
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://user:password@db:5432/db?sslmode=disable
+    ports:
+      - '8081:8081'
