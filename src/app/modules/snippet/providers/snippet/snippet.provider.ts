@@ -1,6 +1,6 @@
 import { Connection } from "typeorm";
-import {databaseConnectionToken} from "../database/connection.provider";
-import {Snippet} from "./snippet.entity";
+import {databaseConnectionToken} from "../../../database/connection.provider";
+import {Snippet} from "../../entities/snippet/snippet.entity";
 
 export const snippetRepositoryToken = 'SnippetRepositoryToken';
 export const snippetRepository = {

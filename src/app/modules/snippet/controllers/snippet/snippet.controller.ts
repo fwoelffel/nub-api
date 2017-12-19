@@ -1,6 +1,6 @@
 import {Inject, Controller, Get, Post, Param, Body, UseInterceptors} from '@nestjs/common';
 import {SnippetService} from "../../services/snippet/snippet.service";
-import {TransformInterceptor} from "../../transform.interceptor";
+import {TransformInterceptor} from "../../interceptors/transform/transform.interceptor";
 
 @UseInterceptors(TransformInterceptor)
 @Controller('/snippets')

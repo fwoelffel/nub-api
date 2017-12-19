@@ -1,6 +1,6 @@
 import {Component, Inject} from '@nestjs/common';
-import {snippetRepositoryToken} from "../../snippet.provider";
-import {Snippet, SnippetInterface} from "../../snippet.entity";
+import {snippetRepositoryToken} from "../../providers/snippet/snippet.provider";
+import {Snippet, SnippetInterface} from "../../entities/snippet/snippet.entity";
 import {Repository} from "typeorm";
 import * as shortid from "shortid";
 
