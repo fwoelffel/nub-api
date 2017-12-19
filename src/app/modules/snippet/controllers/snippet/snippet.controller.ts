@@ -1,6 +1,7 @@
 import {Inject, Controller, Get, Post, Param, Body, UseInterceptors} from '@nestjs/common';
 import {SnippetService} from "../../services/snippet/snippet.service";
 import {TransformInterceptor} from "../../interceptors/transform/transform.interceptor";
+import {CreateSnippetDto} from "../../dtos/createSnippet.dto";
 
 @UseInterceptors(TransformInterceptor)
 @Controller('/snippets')
@@ -20,8 +21,8 @@ export class SnippetController {
   }
 
   @Post()
-  async create(@Body() s) {
-    return await this.snippetService.save(this.snippetService.create(s));
+  async create(@Body() createSnippetDto: CreateSnippetDto) {
+    return await this.snippetService.save(this.snippetService.create(createSnippetDto));
   }
 
 }
