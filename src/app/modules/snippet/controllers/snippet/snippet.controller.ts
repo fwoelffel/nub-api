@@ -1,7 +1,8 @@
-import {Inject, Controller, Get, Post, Param, Body, UseInterceptors} from '@nestjs/common';
+import {Inject, Controller, Get, Post, Param, Body, UseInterceptors, Patch} from '@nestjs/common';
 import {SnippetService} from "../../services/snippet/snippet.service";
 import {TransformInterceptor} from "../../interceptors/transform/transform.interceptor";
 import {CreateSnippetDto} from "../../dtos/createSnippet.dto";
+import {UpdateSnippetDto} from "../../dtos/updateSnippet.dto";
 
 @UseInterceptors(TransformInterceptor)
 @Controller('/snippets')
@@ -23,6 +24,11 @@ export class SnippetController {
   @Post()
   async create(@Body() createSnippetDto: CreateSnippetDto) {
     return await this.snippetService.save(this.snippetService.create(createSnippetDto));
+  }
+
+  @Patch(':shortId')
+  async update(@Param('shortId') sShortId, @Body() updateSnippetDto: UpdateSnippetDto) {
+    return await this.snippetService.updateByShortId(sShortId, updateSnippetDto);
   }
 
 }
