@@ -1,5 +1,17 @@
 version: "3.4"
 services:
+
+  nub-api:
+    build: .
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    ports:
+      - '3000:3000'
   db:
     image: postgres
     environment:
