@@ -2,7 +2,7 @@ version: "3.4"
 services:
 
   nub-api:
-    image: fwoelffel/nub-api:latest
+    build: .
     depends_on:
       - db
     environment:
