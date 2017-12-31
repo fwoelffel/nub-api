@@ -3,11 +3,11 @@ type Query {
 }
 
 type Snippet {
-  name: String
+  name: String!
   description: String
-  content: String
+  content: String!
   createdDate: String
   updatedDate: String
-  id: String
+  id: ID!
   mime: String
 }
