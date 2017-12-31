@@ -1,0 +1,13 @@
+type Query {
+  snippets: [Snippet]
+}
+
+type Snippet {
+  name: String
+  description: String
+  content: String
+  createdDate: String
+  updatedDate: String
+  id: String
+  mime: String
+}
