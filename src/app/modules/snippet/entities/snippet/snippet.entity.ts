@@ -22,7 +22,9 @@ export class Snippet implements SnippetInterface {
   @Column()
   name: string;
 
-  @Column()
+  @Column({
+      default: ''
+  })
   description: string;
 
   @Column('text')

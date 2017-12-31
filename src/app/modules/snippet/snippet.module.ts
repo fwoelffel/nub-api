@@ -5,7 +5,7 @@ import {snippetRepository} from "./providers/snippet/snippet.provider";
 import {SnippetController} from "./controllers/snippet/snippet.controller";
 
 @Module({
-  modules: [
+  imports: [
     DatabaseModule
   ],
   components: [
