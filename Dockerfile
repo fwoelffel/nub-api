@@ -11,9 +11,8 @@ RUN npm install \
  && npm run build
 
 FROM node:carbon-alpine
-WORKDIR /usr/local/seshat
+WORKDIR /usr/local/nub-api
 COPY --from=version /tmp/version/VERSION .
 COPY --from=builder /tmp/builder .
-RUN mkdir uploads downloads blobs
 ENTRYPOINT ["npm", "run"]
 CMD ["start"]
