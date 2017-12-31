@@ -2,6 +2,10 @@ type Query {
   snippets: [Snippet]
 }
 
+type Mutation {
+  createSnippet(name: String!, description: String, content: String!): Snippet
+}
+
 type Snippet {
   name: String!
   description: String
