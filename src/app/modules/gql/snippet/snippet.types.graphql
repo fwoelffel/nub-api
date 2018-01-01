@@ -1,4 +1,6 @@
 type Query {
+  # This query returns the Snippet matching the given id
+  getSnippetById(id: ID!): Snippet
   # This query returns all stored Snippets
   getSnippets: [Snippet],
   # This query return the last (count) Snippets ordered by descending creation date

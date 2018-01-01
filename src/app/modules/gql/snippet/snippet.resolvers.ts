@@ -23,6 +23,13 @@ export class SnippetResolvers {
     return plainSnippets;
   }
 
+  @Query()
+  async getSnippetById(obj, args, context, info) {
+    const snippetEntity = await this.snippetService.getByShortId(args.id);
+    const plainSnippet = classToPlain(snippetEntity);
+    return plainSnippet;
+  }
+
   @Mutation()
   async createSnippet(msg: IncomingMessage, args: {}) {
     const createdEntity = await this.snippetService.create(args);
