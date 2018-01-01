@@ -1,5 +1,6 @@
 type Query {
-  getSnippets: [Snippet]
+  getSnippets: [Snippet],
+  getLastSnippets(count: Int): [Snippet]
 }
 
 type Mutation {

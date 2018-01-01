@@ -16,6 +16,13 @@ export class SnippetResolvers {
     return plainSnippets;
   }
 
+  @Query()
+  async getLastSnippets(obj, args, context, info) {
+    const snippetEntities = await this.snippetService.getLastSnippets(args.count);
+    const plainSnippets = classToPlain(snippetEntities);
+    return plainSnippets;
+  }
+
   @Mutation()
   async createSnippet(msg: IncomingMessage, args: {}) {
     const createdEntity = await this.snippetService.create(args);

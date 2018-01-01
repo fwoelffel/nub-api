@@ -46,4 +46,13 @@ export class SnippetService {
     const savedSnippet = await this.snippetRepository.save(updatedSnippet);
     return savedSnippet;
   }
+
+  async getLastSnippets(count: number = 15): Promise<Snippet[]> {
+    const snippets = await this.snippetRepository
+        .createQueryBuilder('snippet')
+        .orderBy('snippet.createdDate', 'DESC')
+        .limit(count)
+        .getMany();
+    return snippets;
+  }
 }
