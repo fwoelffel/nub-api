@@ -39,11 +39,8 @@ export class SnippetService {
 
   async updateByShortId(sShortId: string, sPayload: SnippetInterface): Promise<Snippet> {
     const storedSnippet = await this.snippetRepository.findOne({shortId: sShortId});
-    const updatedSnippet = {
-      ...storedSnippet,
-      ...sPayload
-    };
-    const savedSnippet = await this.snippetRepository.save(updatedSnippet);
+    Object.assign(storedSnippet, sPayload);
+    const savedSnippet = await this.save(storedSnippet);
     return savedSnippet;
   }
 
