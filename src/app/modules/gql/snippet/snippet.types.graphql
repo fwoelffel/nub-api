@@ -1,5 +1,5 @@
 type Query {
-  snippets: [Snippet]
+  getSnippets: [Snippet]
 }
 
 type Mutation {
