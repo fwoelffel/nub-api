@@ -10,6 +10,8 @@ type Query {
 type Mutation {
   # This mutation creates a new Snippet
   createSnippet(name: String!, description: String, content: String!): Snippet
+  # This mutation updates an existing Snippet
+  updateSnippet(id: ID!, name: String, description: String, content: String): Snippet
 }
 
 type Snippet {

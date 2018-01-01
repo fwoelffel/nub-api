@@ -38,4 +38,15 @@ export class SnippetResolvers {
     return plainSnippet;
   }
 
+  @Mutation()
+  async updateSnippet(msg: IncomingMessage, args) {
+    const updatePayload: SnippetInterface = {};
+    if (args.name) updatePayload.name = args.name;
+    if (args.description) updatePayload.description = args.description;
+    if (args.content) updatePayload.content = args.content;
+    const updatedSnippet = await this.snippetService.updateByShortId(args.id, updatePayload);
+    const plainSnippet = classToPlain(updatedSnippet);
+    return plainSnippet;
+  }
+
 }
