@@ -1,13 +1,17 @@
 import {Mutation, Query, Resolver} from "@nestjs/graphql";
-import {SnippetService} from "../../snippet/services/snippet/snippet.service";
+import {SnippetService} from "../services/snippet/snippet.service";
 import {classToPlain} from "class-transformer";
-import {SnippetInterface} from "../../snippet/entities/snippet/snippet.entity";
+import {SnippetInterface} from "../entities/snippet/snippet.entity";
 import {IncomingMessage} from "http";
 
 @Resolver('Snippet')
 export class SnippetResolvers {
 
   constructor(private readonly snippetService: SnippetService) {}
+
+  /**
+   * QUERIES
+   */
 
   @Query()
   async getSnippets(obj, args, context, info) {
@@ -29,6 +33,10 @@ export class SnippetResolvers {
     const plainSnippet = classToPlain(snippetEntity);
     return plainSnippet;
   }
+
+  /**
+   * MUTATIONS
+   */
 
   @Mutation()
   async createSnippet(msg: IncomingMessage, args: {}) {

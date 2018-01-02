@@ -3,6 +3,7 @@ import {DatabaseModule} from "../database/database.module";
 import {SnippetService} from './services/snippet/snippet.service';
 import {snippetRepository} from "./providers/snippet/snippet.provider";
 import {SnippetController} from "./controllers/snippet/snippet.controller";
+import {SnippetResolvers} from "./resolvers/snippet.resolvers";
 
 @Module({
   imports: [
@@ -10,7 +11,8 @@ import {SnippetController} from "./controllers/snippet/snippet.controller";
   ],
   components: [
     snippetRepository,
-    SnippetService
+    SnippetService,
+    SnippetResolvers
   ],
   controllers: [
     SnippetController

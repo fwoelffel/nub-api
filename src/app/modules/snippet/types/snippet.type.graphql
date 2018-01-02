@@ -1,0 +1,24 @@
+type Snippet {
+
+  # The Snippet name
+  name: String!
+
+  # The Snippet description
+  description: String
+
+  # The Snippet content
+  content: String!
+
+  # The Snippet creation date
+  createdDate: String
+
+  # The Snippet last update date
+  updatedDate: String
+
+  # The Snippet id
+  id: ID!
+
+  # The Snippet mime type
+  mime: String
+
+}

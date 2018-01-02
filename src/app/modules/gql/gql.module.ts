@@ -1,17 +1,11 @@
 import {Module, NestModule, MiddlewaresConsumer, RequestMethod} from '@nestjs/common';
 import {graphqlExpress, graphiqlExpress} from 'apollo-server-express';
 import {GraphQLFactory, GraphQLModule} from '@nestjs/graphql';
-import {SnippetResolvers} from "./snippet/snippet.resolvers";
-import {SnippetModule} from "../snippet/snippet.module";
 import * as bodyParser from 'body-parser';
 
 @Module({
   imports: [
-    GraphQLModule,
-    SnippetModule
-  ],
-  components: [
-    SnippetResolvers
+    GraphQLModule
   ]
 })
 export class GQLModule implements NestModule {
@@ -19,7 +13,7 @@ export class GQLModule implements NestModule {
   constructor(private readonly graphQLFactory: GraphQLFactory) {}
 
   configure(consumer: MiddlewaresConsumer) {
-    const typeDefs = this.graphQLFactory.mergeTypesByPaths('./**/*.graphql');
+    const typeDefs = this.graphQLFactory.mergeTypesByPaths('../**/**/*.graphql');
     const schema = this.graphQLFactory.createSchema({ typeDefs });
     consumer
       .apply(bodyParser.text({ type: 'application/graphql' }))
