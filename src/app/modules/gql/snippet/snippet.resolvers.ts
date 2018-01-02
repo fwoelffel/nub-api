@@ -49,4 +49,11 @@ export class SnippetResolvers {
     return plainSnippet;
   }
 
+  @Mutation()
+  async deleteSnippet(msg: IncomingMessage, args: {id: string}) {
+    const deletedSnippet = await this.snippetService.deleteByShortId(args.id);
+    const plainSnippet = classToPlain(deletedSnippet);
+    return plainSnippet;
+  }
+
 }

@@ -99,4 +99,17 @@ export class SnippetService {
       .getMany();
     return snippets;
   }
+
+  /**
+   * This function deletes the Snippet matching the given id and returns the deleted entity.
+   * @param {string} sShortId
+   * @returns {Promise<Snippet|void>}
+   */
+  async deleteByShortId(sShortId: string): Promise<Snippet | void> {
+    const storedSnippet = await this.getByShortId(sShortId);
+    if (storedSnippet) {
+      const deletedSnippet = await this.snippetRepository.remove(storedSnippet);
+      return deletedSnippet;
+    }
+  }
 }
