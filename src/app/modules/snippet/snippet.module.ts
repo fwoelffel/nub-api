@@ -1,16 +1,15 @@
 import {Module} from '@nestjs/common';
-import {DatabaseModule} from "../database/database.module";
 import {SnippetService} from './services/snippet/snippet.service';
-import {snippetRepository} from "./providers/snippet/snippet.provider";
 import {SnippetController} from "./controllers/snippet/snippet.controller";
 import {SnippetResolvers} from "./resolvers/snippet.resolvers";
+import {TypeOrmModule} from "@nestjs/typeorm";
+import {Snippet} from "./entities/snippet/snippet.entity";
 
 @Module({
   imports: [
-    DatabaseModule
+    TypeOrmModule.forFeature([Snippet])
   ],
   components: [
-    snippetRepository,
     SnippetService,
     SnippetResolvers
   ],

@@ -1,8 +1,8 @@
-import {Component, Inject} from '@nestjs/common';
-import {snippetRepositoryToken} from "../../providers/snippet/snippet.provider";
+import {Component} from '@nestjs/common';
 import {Snippet, SnippetInterface} from "../../entities/snippet/snippet.entity";
 import {Repository} from "typeorm";
 import * as shortid from "shortid";
+import {InjectRepository} from "@nestjs/typeorm";
 
 /**
  * This component provides methods to manage Snippet entities.
@@ -11,7 +11,7 @@ import * as shortid from "shortid";
 export class SnippetService {
 
   constructor(
-    @Inject(snippetRepositoryToken) private readonly snippetRepository: Repository<Snippet>
+    @InjectRepository(Snippet) private readonly snippetRepository: Repository<Snippet>
   ) {}
 
   /**
