@@ -1,0 +1,6 @@
+type Query {
+
+    # This query returns all stored Users
+    getUsers: [User]
+
+}

@@ -1,0 +1,19 @@
+# This type defines an User resource
+type User {
+
+    # The User id (may be null if the User is deleted)
+    id: ID
+
+    # The User email address
+    email: String
+
+    # The User username
+    username: String
+
+    # The User creation date
+    createdDate: String
+
+    # The User last update date
+    updatedDate: String
+
+}

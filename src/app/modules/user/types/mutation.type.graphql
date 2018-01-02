@@ -1,0 +1,12 @@
+type Mutation {
+
+    # This mutation creates a new User
+    createUser(email: String!, username: String!, password: String!): User
+
+    # This mutation updates the User matching the given id
+    updateUser(id: ID!, email: String, username: String, password: String): User
+
+    # This mutation deletes the User matching the given id
+    deleteUser(id: ID!): User
+
+}
