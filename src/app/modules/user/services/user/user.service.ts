@@ -2,7 +2,7 @@ import {Component} from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {User, UserInterface} from "../../entities/user.entity";
 import {Repository} from "typeorm";
-import {hash} from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import {UserNotFoundError} from "../../errors/notFound.error";
 
 @Component()
@@ -19,7 +19,7 @@ export class UserService {
    * @returns {Promise<User>} The created user.
    */
   async create(uPayload: UserInterface): Promise<User> {
-    uPayload.password = await hash(uPayload.password, 15);
+    uPayload.password = await bcrypt.hash(uPayload.password, 5);
     const createdUser = this.userRepository.create(uPayload);
     return createdUser;
   }
@@ -49,7 +49,7 @@ export class UserService {
       throw new UserNotFoundError(uId);
     }
     if (uPayload.password) {
-      uPayload.password = await hash(uPayload.password, 15);
+      uPayload.password = await bcrypt.hash(uPayload.password, 15);
     }
     Object.assign(storedUser, uPayload);
     const updatedUser = await this.userRepository.save(storedUser);
