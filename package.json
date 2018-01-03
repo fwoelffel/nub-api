@@ -7,7 +7,7 @@
     "build": "tsc",
     "test": "mocha src/**/*.spec.ts --require ts-node/register --reporter spec",
     "prestart": "npm run build",
-    "start": "node index.js",
+    "start": "node dist/server.js",
     "watch": "tsc -w",
     "serve": "nodemon -e ts --watch src --exec \"npm run build && npm run start\" "
   },
