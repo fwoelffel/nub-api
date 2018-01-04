@@ -10,6 +10,14 @@ export interface UserInterface {
   updatedDate?: Date;
 }
 
+export interface PlainUserInterface {
+  id: string;
+  email: string;
+  username: string;
+  createdDate?: Date;
+  updatedDate?: Date;
+}
+
 @Entity()
 export class User implements UserInterface {
 
