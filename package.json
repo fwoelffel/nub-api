@@ -44,6 +44,8 @@
     "@types/mime-types": "^2.1.0",
     "@types/mocha": "^2.2.45",
     "@types/node": "^8.5.2",
+    "@types/passport": "^0.4.2",
+    "@types/passport-jwt": "^3.0.0",
     "@types/shortid": "0.0.29",
     "@types/sinon": "^2.3.7",
     "chai": "^4.1.2",
